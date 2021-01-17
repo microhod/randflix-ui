@@ -4,6 +4,7 @@
       <div id="title-info">
         <div id="title-header">
           <h2 id="title-name">{{ title.name }}</h2>
+          <h3 id="title-year" v-if="title?.year">({{ title.year }})</h3>
         </div>
 
         <hr />
