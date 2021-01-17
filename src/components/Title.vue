@@ -8,8 +8,8 @@
 
         <hr />
         
-        <div id="metascore" v-if="title?.scores?.metacritic" v-bind:class="metascoreClass">
-          <b>&nbsp;Metascore: {{ title?.scores?.metacritic }}&nbsp;</b>
+        <div id="metascore" v-if="title?.scores?.metascore" v-bind:class="metascoreClass">
+          <b>&nbsp;Metascore: {{ title?.scores?.metascore }}&nbsp;</b>
         </div>
         <p id="title-description">{{ title.description }}</p>
 
@@ -73,9 +73,9 @@ export default {
   props: ["title"],
   computed: {
     metascoreClass() {
-      return this.title?.scores?.metacritic >= 60
+      return this.title?.scores?.metascore >= 60
         ? "good"
-        : this.title?.scores?.metacritic >= 40
+        : this.title?.scores?.metascore >= 40
         ? "medium"
         : "bad";
     },
