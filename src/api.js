@@ -1,10 +1,13 @@
 
+const defaultApiURL = "http://localhost:8080"
+
 async function getRandomTitle() {
 
   var resp
 
   try {
-    resp = await fetch("http://localhost:8080/title/random?score_min=90", {
+    var apiBaseURL = process.env.VUE_APP_API_BASEURL ? process.env.VUE_APP_API_BASEURL : defaultApiURL
+    resp = await fetch(`${apiBaseURL}/title/random`, {
       headers: {
         "Content-Type": "application/json",
       },
@@ -15,11 +18,11 @@ async function getRandomTitle() {
 
   if (!resp?.ok) {
     var body = await resp.text()
-    console.log(`status: ${resp.status}, message: ${body}`)
+    console.error(`status: ${resp.status}, message: ${body}`)
     throw new Error(body)
   }
 
-  return resp.json()
+  return (await resp.json())
 }
 
 export default getRandomTitle
