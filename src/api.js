@@ -7,7 +7,7 @@ async function getRandomTitle() {
 
   try {
     var apiBaseURL = process.env.VUE_APP_API_BASEURL ? process.env.VUE_APP_API_BASEURL : defaultApiURL
-    resp = await fetch(`${apiBaseURL}/title/random`, {
+    resp = await fetch(`${apiBaseURL}/title/random?service=netflix`, {
       headers: {
         "Content-Type": "application/json",
       },

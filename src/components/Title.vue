@@ -63,7 +63,7 @@
     <img
       id="title-poster"
       v-if="title.poster"
-      v-bind:src="title.poster"
+      v-bind:src="resizedPoster"
     />
   </div>
 </template>
@@ -80,6 +80,10 @@ export default {
         ? "medium"
         : "bad";
     },
+    resizedPoster() {
+      //TODO: make this better
+      return this.title?.poster?.replace(".png", "._V1_UY720_CR5,,,720_AL_.png")
+    }
   },
 };
 </script>
